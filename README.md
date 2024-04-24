@@ -126,73 +126,67 @@
 # Consulta realizada ....
 ```
 
-**22 Obtener el nombre y la descripción de los tipos de protección y el número de prendas asociadas a cada tipo**
+**22. Obtener la descripción de los tipos de protección y el número de prendas asociadas a cada tipo**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**23 Mostrar la lista de empleados con sus cargos y fechas de ingreso ordenados por la fecha de ingreso de manera descendente**
+**23. Mostrar la lista de empleados con sus cargos y fechas de ingreso ordenados por la fecha de ingreso de manera descendente**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**24 Mostrar el nombre y la descripción de todos los cargos junto con la cantidad de empleados en cada cargo**
+**24. Mostrar la descripción de todos los cargos junto con la cantidad de empleados en cada cargo**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**25 Obtener el nombre y la descripción de los estados junto con la cantidad de prendas asociadas a cada estado**
+**25. Obtener la descripción de los estados junto con la cantidad de prendas asociadas a cada estado**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**26 Obtener el nombre y la descripción de los tipos de persona junto con la cantidad de clientes asociados a cada tipo**
+**26. Obtener el nombre de los tipos de persona junto con la cantidad de clientes asociados a cada tipo**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**27 Mostrar el nombre y la descripción de los tipos de protección junto con la cantidad de prendas asociadas a cada tipo**
+**27. Obtener la descripción de los estados junto con la cantidad de órdenes asociadas a cada estado**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**28 Obtener el nombre y la descripción de los estados junto con la cantidad de órdenes asociadas a cada estado**
+**28. Obtener la descripción de las forma de pago junto con la cantidad de ventas asociadas a cada tipo**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**29 Obtener el nombre y la descripción de los tipos de pago junto con la cantidad de ventas asociadas a cada tipo**
+**29. Mostrar el nombre y la descripción de los insumos junto con la cantidad de prendas que los utilizan**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**30 Mostrar el nombre y la descripción de los tipos de insumos junto con la cantidad de prendas que los utilizan**
+**30. Obtener el nombre de los clientes y la cantidad total gastada por cada uno en ventas**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**31 Obtener el nombre de los clientes y la cantidad total gastada por cada uno en ventas**
+**31. Mostrar el nombre de las prendas junto con el valor total de ventas en pesos colombianos para cada una**
 
 ```sql
 # Consulta realizada ....
 ```
 
-**32 Mostrar el nombre y la descripción de las prendas junto con el valor total de ventas en pesos colombianos para cada una**
-
-```sql
-# Consulta realizada ....
-```
-
-**33 Mostrar el nombre y la descripción de los estados junto con la cantidad de prendas asociadas a cada estado en orden ascendente de la cantidad de prendas**
+**32. Mostrar la descripción de los estados junto con la cantidad de prendas asociadas a cada estado en orden ascendente de la cantidad de prendas**
 
 ```sql
 # Consulta realizada ....

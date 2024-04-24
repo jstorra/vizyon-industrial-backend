@@ -3,12 +3,12 @@ CREATE DATABASE vizyondb;
 USE vizyondb;
 
 CREATE TABLE cargo (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL,
-    SueldoBase DECIMAL(10, 2) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL,
+    sueldo_base DECIMAL(10, 2) NOT NULL
 );
 
-INSERT INTO cargo (Descripcion, SueldoBase)
+INSERT INTO cargo (descripcion, sueldo_base)
 VALUES
 ('Vendedor', 1500000),
 ('Administrador', 3000000),
@@ -17,11 +17,11 @@ VALUES
 ('Almacenista', 800000);
 
 CREATE TABLE color (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL
 );
 
-INSERT INTO color (Descripcion)
+INSERT INTO color (descripcion)
 VALUES
 ('Negro'),
 ('Blanco'),
@@ -35,11 +35,11 @@ VALUES
 ('Beige');
 
 CREATE TABLE forma_pago (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL
 );
 
-INSERT INTO forma_pago (Descripcion)
+INSERT INTO forma_pago (descripcion)
 VALUES
 ('Efectivo'),
 ('Tarjeta de crédito'),
@@ -48,25 +48,25 @@ VALUES
 ('Paypal');
 
 CREATE TABLE genero (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL
 );
 
-INSERT INTO genero (Descripcion)
+INSERT INTO genero (descripcion)
 VALUES
 ('Masculino'),
 ('Femenino'),
 ('Unisex');
 
 CREATE TABLE insumo (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    ValorUnit DECIMAL(10, 2) NOT NULL,
-    StockMin INT NOT NULL,
-    StockMax INT NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    valor_unit DECIMAL(10, 2) NOT NULL,
+    stock_min INT NOT NULL,
+    stock_max INT NOT NULL
 );
 
-INSERT INTO insumo (Nombre, ValorUnit, StockMin, StockMax)
+INSERT INTO insumo (nombre, valor_unit, stock_min, stock_max)
 VALUES
 ('Tela de algodón', 10000, 100, 1000),
 ('Tela de poliéster', 20000, 50, 500),
@@ -75,11 +75,11 @@ VALUES
 ('Cierres', 3000, 5, 50);
 
 CREATE TABLE pais (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
 );
 
-INSERT INTO pais (Nombre)
+INSERT INTO pais (nombre)
 VALUES
 ('Colombia'),
 ('México'),
@@ -93,11 +93,11 @@ VALUES
 ('Inglaterra');
 
 CREATE TABLE talla (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL
 );
 
-INSERT INTO talla (Descripcion)
+INSERT INTO talla (descripcion)
 VALUES
 ('XS - Extra pequeña'),
 ('S - Pequeña'),
@@ -107,11 +107,11 @@ VALUES
 ('XXL - Extra extra grande');
 
 CREATE TABLE tipo_estado (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL
 );
 
-INSERT INTO tipo_estado (Descripcion)
+INSERT INTO tipo_estado (descripcion)
 VALUES
 ('Nuevo'),
 ('En proceso'),
@@ -120,22 +120,22 @@ VALUES
 ('Entregado');
 
 CREATE TABLE tipo_persona (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
 );
 
-INSERT INTO tipo_persona (Nombre)
+INSERT INTO tipo_persona (nombre)
 VALUES
 ('Cliente'),
 ('Proveedor'),
 ('Empleado');
 
 CREATE TABLE tipo_proteccion (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL
 );
 
-INSERT INTO tipo_proteccion (Descripcion)
+INSERT INTO tipo_proteccion (descripcion)
 VALUES
 ('Protección contra el sol'),
 ('Protección contra el agua'),
@@ -144,13 +144,13 @@ VALUES
 ('Protección contra los insectos');
 
 CREATE TABLE departamento (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    IdPaisFk INT NOT NULL,
-    FOREIGN KEY (IdPaisFk) REFERENCES pais(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    id_pais_fk INT NOT NULL,
+    FOREIGN KEY (id_pais_fk) REFERENCES pais(id)
 );
 
-INSERT INTO departamento (Nombre, IdPaisFk)
+INSERT INTO departamento (nombre, id_pais_fk)
 VALUES
 ('Antioquia', 1),
 ('Bogotá', 1),
@@ -164,13 +164,13 @@ VALUES
 ('Tokio', 7);
 
 CREATE TABLE municipio (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    IdDepartamentoFk INT NOT NULL,
-    FOREIGN KEY (IdDepartamentoFk) REFERENCES departamento(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    id_departamento_fk INT NOT NULL,
+    FOREIGN KEY (id_departamento_fk) REFERENCES departamento(id)
 );
 
-INSERT INTO municipio (Nombre, IdDepartamentoFk)
+INSERT INTO municipio (nombre, id_departamento_fk)
 VALUES
 ('Medellín', 1),
 ('Bogotá, D.C.', 2),
@@ -184,13 +184,13 @@ VALUES
 ('Tokio', 10);
 
 CREATE TABLE estado (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL,
-    IdTipoEstadoFk INT NOT NULL,
-    FOREIGN KEY (IdTipoEstadoFk) REFERENCES tipo_estado(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100) NOT NULL,
+    id_tipo_estado_fk INT NOT NULL,
+    FOREIGN KEY (id_tipo_estado_fk) REFERENCES tipo_estado(id)
 );
 
-INSERT INTO estado (Descripcion, IdTipoEstadoFk)
+INSERT INTO estado (descripcion, id_tipo_estado_fk)
 VALUES
 ('Pendiente', 1),
 ('En proceso', 2),
@@ -199,17 +199,17 @@ VALUES
 ('Entregado', 5);
 
 CREATE TABLE cliente (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    IdCliente VARCHAR(20) NOT NULL,
-    IdTipoPersonaFk INT NOT NULL,
-    FechaRegistro DATE NOT NULL,
-    IdMunicipioFk INT NOT NULL,
-    FOREIGN KEY (IdTipoPersonaFk) REFERENCES tipo_persona(Id),
-    FOREIGN KEY (IdMunicipioFk) REFERENCES municipio(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    id_cliente VARCHAR(20) NOT NULL,
+    id_tipo_persona_fk INT NOT NULL,
+    fecha_registro DATE NOT NULL,
+    id_municipio_fk INT NOT NULL,
+    FOREIGN KEY (id_tipo_persona_fk) REFERENCES tipo_persona(id),
+    FOREIGN KEY (id_municipio_fk) REFERENCES municipio(id)
 );
 
-INSERT INTO cliente (Nombre, IdCliente, IdTipoPersonaFk, FechaRegistro, IdMunicipioFk)
+INSERT INTO cliente (nombre, id_cliente, id_tipo_persona_fk, fecha_registro, id_municipio_fk)
 VALUES
 ('Juan Pérez', '123456789', 1, '2023-07-20', 1),
 ('María López', '987654321', 2, '2023-08-03', 2),
@@ -223,16 +223,16 @@ VALUES
 ('Camila Gutiérrez', '7654321098', 1, '2023-09-28', 10);
 
 CREATE TABLE empleado (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    IdCargoFk INT NOT NULL,
-    FechaIngreso DATE NOT NULL,
-    IdMunicipioFk INT NOT NULL,
-    FOREIGN KEY (IdCargoFk) REFERENCES cargo(Id),
-    FOREIGN KEY (IdMunicipioFk) REFERENCES municipio(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    id_cargo_fk INT NOT NULL,
+    fecha_ingreso DATE NOT NULL,
+    id_municipio_fk INT NOT NULL,
+    FOREIGN KEY (id_cargo_fk) REFERENCES cargo(id),
+    FOREIGN KEY (id_municipio_fk) REFERENCES municipio(id)
 );
 
-INSERT INTO empleado (Nombre, IdCargoFk, FechaIngreso, IdMunicipioFk)
+INSERT INTO empleado (nombre, id_cargo_fk, fecha_ingreso, id_municipio_fk)
 VALUES
 ('Juan Pérez', 1, '2023-07-20', 1),
 ('María López', 2, '2023-08-03', 2),
@@ -246,17 +246,17 @@ VALUES
 ('Camila Gutiérrez', 1, '2023-09-28', 10);
 
 CREATE TABLE venta (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Fecha DATE NOT NULL,
-    IdEmpleadoFk INT NOT NULL,
-    IdClienteFk INT NOT NULL,
-    IdFormaPagoFk INT NOT NULL,
-    FOREIGN KEY (IdEmpleadoFk) REFERENCES empleado(Id),
-    FOREIGN KEY (IdClienteFk) REFERENCES cliente(Id),
-    FOREIGN KEY (IdFormaPagoFk) REFERENCES forma_pago(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_empleado_fk INT NOT NULL,
+    id_cliente_fk INT NOT NULL,
+    id_forma_pago_fk INT NOT NULL,
+    FOREIGN KEY (id_empleado_fk) REFERENCES empleado(id),
+    FOREIGN KEY (id_cliente_fk) REFERENCES cliente(id),
+    FOREIGN KEY (id_forma_pago_fk) REFERENCES forma_pago(id)
 );
 
-INSERT INTO venta (Fecha, IdEmpleadoFk, IdClienteFk, IdFormaPagoFk)
+INSERT INTO venta (fecha, id_empleado_fk, id_cliente_fk, id_forma_pago_fk)
 VALUES
 ('2023-07-20', 1, 1, 1),
 ('2023-08-03', 2, 2, 2),
@@ -270,20 +270,20 @@ VALUES
 ('2023-09-28', 1, 10, 1);
 
 CREATE TABLE prenda (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
-    ValorUnitCop DECIMAL(10, 2) NOT NULL,
-    ValorUnitUsd DECIMAL(10, 2) NOT NULL,
-    IdEstadoFk INT NOT NULL,
-    IdTipoProteccion INT NOT NULL,
-    IdGeneroFk INT NOT NULL,
-    Codigo VARCHAR(20) NOT NULL,
-    FOREIGN KEY (IdEstadoFk) REFERENCES estado(Id),
-    FOREIGN KEY (IdTipoProteccion) REFERENCES tipo_proteccion(Id),
-    FOREIGN KEY (IdGeneroFk) REFERENCES genero(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    valor_unit_cop DECIMAL(10, 2) NOT NULL,
+    valor_unit_usd DECIMAL(10, 2) NOT NULL,
+    id_estado_fk INT NOT NULL,
+    id_tipo_proteccion INT NOT NULL,
+    id_genero_fk INT NOT NULL,
+    codigo VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_estado_fk) REFERENCES estado(id),
+    FOREIGN KEY (id_tipo_proteccion) REFERENCES tipo_proteccion(id),
+    FOREIGN KEY (id_genero_fk) REFERENCES genero(id)
 );
 
-INSERT INTO prenda (Nombre, ValorUnitCop, ValorUnitUsd, IdEstadoFk, IdTipoProteccion, IdGeneroFk, Codigo)
+INSERT INTO prenda (nombre, valor_unit_cop, valor_unit_usd, id_estado_fk, id_tipo_proteccion, id_genero_fk, codigo)
 VALUES
 ('Camiseta de algodón manga corta', 20000, 5, 1, 1, 1, 'PR001'),
 ('Camisa de manga larga', 30000, 7.5, 1, 1, 1, 'PR002'),
@@ -297,15 +297,15 @@ VALUES
 ('Medias', 5000, 1.25, 1, 1, 1, 'PR010');
 
 CREATE TABLE inventario (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    CodInv VARCHAR(20) NOT NULL,
-    IdPrendaFk INT NOT NULL,
-    ValorVtaCop DECIMAL(10, 2) NOT NULL,
-    ValorVtaUsd DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (IdPrendaFk) REFERENCES prenda(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cod_inv VARCHAR(20) NOT NULL,
+    id_prenda_fk INT NOT NULL,
+    valor_vta_cop DECIMAL(10, 2) NOT NULL,
+    valor_vta_usd DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_prenda_fk) REFERENCES prenda(id)
 );
 
-INSERT INTO inventario (CodInv, IdPrendaFk, ValorVtaCop, ValorVtaUsd)
+INSERT INTO inventario (cod_inv, id_prenda_fk, valor_vta_cop, valor_vta_usd)
 VALUES
 ('INV001', 1, 25000, 6.25),
 ('INV002', 2, 37500, 9.375),
@@ -319,18 +319,18 @@ VALUES
 ('INV010', 10, 5000, 1.25);
 
 CREATE TABLE detalle_venta (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    IdVentaFk INT NOT NULL,
-    IdProductoFk INT NOT NULL,
-    IdTallaFk INT NOT NULL,
-    Cantidad INT NOT NULL,
-    ValorUnit DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (IdVentaFk) REFERENCES venta(Id),
-    FOREIGN KEY (IdProductoFk) REFERENCES prenda(Id),
-    FOREIGN KEY (IdTallaFk) REFERENCES talla(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_venta_fk INT NOT NULL,
+    id_producto_fk INT NOT NULL,
+    id_talla_fk INT NOT NULL,
+    cantidad INT NOT NULL,
+    valor_unit DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_venta_fk) REFERENCES venta(id),
+    FOREIGN KEY (id_producto_fk) REFERENCES prenda(id),
+    FOREIGN KEY (id_talla_fk) REFERENCES talla(id)
 );
 
-INSERT INTO detalle_venta (IdVentaFk, IdProductoFk, IdTallaFk, Cantidad, ValorUnit)
+INSERT INTO detalle_venta (id_venta_fk, id_producto_fk, id_talla_fk, cantidad, valor_unit)
 VALUES
 (1, 1, 1, 2, 25000),
 (2, 2, 2, 1, 37500),
@@ -340,17 +340,17 @@ VALUES
 (6, 6, 6, 6, 12500);
 
 CREATE TABLE orden (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Fecha DATE NOT NULL,
-    IdEmpleadoFk INT NOT NULL,
-    IdClienteFk INT NOT NULL,
-    IdEstadoFk INT NOT NULL,
-    FOREIGN KEY (IdEmpleadoFk) REFERENCES empleado(Id),
-    FOREIGN KEY (IdClienteFk) REFERENCES cliente(Id),
-    FOREIGN KEY (IdEstadoFk) REFERENCES estado(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_empleado_fk INT NOT NULL,
+    id_cliente_fk INT NOT NULL,
+    id_estado_fk INT NOT NULL,
+    FOREIGN KEY (id_empleado_fk) REFERENCES empleado(id),
+    FOREIGN KEY (id_cliente_fk) REFERENCES cliente(id),
+    FOREIGN KEY (id_estado_fk) REFERENCES estado(id)
 );
 
-INSERT INTO orden (Fecha, IdEmpleadoFk, IdClienteFk, IdEstadoFk)
+INSERT INTO orden (fecha, id_empleado_fk, id_cliente_fk, id_estado_fk)
 VALUES
 ('2023-07-20', 1, 1, 1),
 ('2023-08-03', 2, 2, 2),
@@ -359,39 +359,38 @@ VALUES
 ('2023-08-24', 2, 5, 5);
 
 CREATE TABLE detalle_orden (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    IdOrdenFk INT NOT NULL,
-    IdPrendaFk INT NOT NULL,
-    PrendaId INT NOT NULL,
-    CantidadProducir INT NOT NULL,
-    IdColorFk INT NOT NULL,
-    CantidadProducida INT NOT NULL,
-    IdEstadoFk INT NOT NULL,
-    FOREIGN KEY (IdOrdenFk) REFERENCES orden(Id),
-    FOREIGN KEY (IdPrendaFk) REFERENCES prenda(Id),
-    FOREIGN KEY (IdColorFk) REFERENCES color(Id),
-    FOREIGN KEY (IdEstadoFk) REFERENCES estado(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_orden_fk INT NOT NULL,
+    id_prenda_fk INT NOT NULL,
+    cantidad_producir INT NOT NULL,
+    id_color_fk INT NOT NULL,
+    cantidad_producida INT NOT NULL,
+    id_estado_fk INT NOT NULL,
+    FOREIGN KEY (id_orden_fk) REFERENCES orden(id),
+    FOREIGN KEY (id_prenda_fk) REFERENCES prenda(id),
+    FOREIGN KEY (id_color_fk) REFERENCES color(id),
+    FOREIGN KEY (id_estado_fk) REFERENCES estado(id)
 );
 
-INSERT INTO detalle_orden (IdOrdenFk, IdPrendaFk, PrendaId, CantidadProducir, IdColorFk, CantidadProducida, IdEstadoFk)
+INSERT INTO detalle_orden (id_orden_fk, id_prenda_fk, cantidad_producir, id_color_fk, cantidad_producida, id_estado_fk)
 VALUES
-(1, 1, 1, 10, 1, 5, 1),
-(2, 2, 2, 5, 2, 3, 2),
-(3, 3, 3, 3, 3, 3, 3),
-(4, 4, 4, 2, 4, 2, 4),
-(5, 5, 5, 1, 5, 1, 5);
+(1, 1, 10, 1, 5, 1),
+(2, 2, 5, 2, 3, 2),
+(3, 3, 3, 3, 3, 3),
+(4, 4, 2, 4, 2, 4),
+(5, 5, 1, 5, 1, 5);
 
 CREATE TABLE empresa (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nit VARCHAR(20) NOT NULL UNIQUE,
-    RazonSocial VARCHAR(100) NOT NULL,
-    RepresentanteLegal VARCHAR(100) NOT NULL,
-    FechaCreacion DATE NOT NULL,
-    IdMunicipioFk INT NOT NULL,
-    FOREIGN KEY (IdMunicipioFk) REFERENCES municipio(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nit VARCHAR(20) NOT NULL UNIQUE,
+    razon_social VARCHAR(100) NOT NULL,
+    representante_legal VARCHAR(100) NOT NULL,
+    fecha_creacion DATE NOT NULL,
+    id_municipio_fk INT NOT NULL,
+    FOREIGN KEY (id_municipio_fk) REFERENCES municipio(id)
 );
 
-INSERT INTO empresa (Nit, RazonSocial, RepresentanteLegal, FechaCreacion, IdMunicipioFk)
+INSERT INTO empresa (nit, razon_social, representante_legal, fecha_creacion, id_municipio_fk)
 VALUES
 ('900000000-1', 'Empresa de Ropa S.A.S.', 'Juan Pérez', '2023-01-01', 1),
 ('900000000-2', 'Empresa de Calzado S.A.S.', 'María Rodríguez', '2023-02-02', 2),
@@ -400,15 +399,15 @@ VALUES
 ('900000000-5', 'Empresa de Confección S.A.S.', 'Carlos Hernández', '2023-05-05', 5);
 
 CREATE TABLE insumo_prendas (
-    IdInsumoFk INT NOT NULL,
-    IdPrendaFk INT NOT NULL,
-    Cantidad INT NOT NULL,
-    PRIMARY KEY (IdInsumoFk, IdPrendaFk),
-    FOREIGN KEY (IdInsumoFk) REFERENCES insumo(Id),
-    FOREIGN KEY (IdPrendaFk) REFERENCES prenda(Id)
+    id_insumo_fk INT NOT NULL,
+    id_prenda_fk INT NOT NULL,
+    cantidad INT NOT NULL,
+    PRIMARY KEY (id_insumo_fk, id_prenda_fk),
+    FOREIGN KEY (id_insumo_fk) REFERENCES insumo(id),
+    FOREIGN KEY (id_prenda_fk) REFERENCES prenda(id)
 );
 
-INSERT INTO insumo_prendas (IdInsumoFk, IdPrendaFk, Cantidad)
+INSERT INTO insumo_prendas (id_insumo_fk, id_prenda_fk, cantidad)
 VALUES
 (1, 1, 2),
 (1, 2, 1),
@@ -422,14 +421,14 @@ VALUES
 (5, 10, 1);
 
 CREATE TABLE inventario_talla (
-    IdInvFk INT NOT NULL,
-    IdTallaFk INT NOT NULL,
-    PRIMARY KEY (IdInvFk, IdTallaFk),
-    FOREIGN KEY (IdInvFk) REFERENCES inventario(Id),
-    FOREIGN KEY (IdTallaFk) REFERENCES talla(Id)
+    id_inv_fk INT NOT NULL,
+    id_talla_fk INT NOT NULL,
+    PRIMARY KEY (id_inv_fk, id_talla_fk),
+    FOREIGN KEY (id_inv_fk) REFERENCES inventario(id),
+    FOREIGN KEY (id_talla_fk) REFERENCES talla(id)
 );
 
-INSERT INTO inventario_talla (IdInvFk, IdTallaFk)
+INSERT INTO inventario_talla (id_inv_fk, id_talla_fk)
 VALUES
 (1, 1),
 (2, 2),
@@ -438,16 +437,16 @@ VALUES
 (5, 5);
 
 CREATE TABLE proveedor (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    NitProveedor VARCHAR(20) NOT NULL UNIQUE,
-    Nombre VARCHAR(100) NOT NULL,
-    IdTipoPersona INT NOT NULL,
-    IdMunicipioFk INT NOT NULL,
-    FOREIGN KEY (IdTipoPersona) REFERENCES tipo_persona(Id),
-    FOREIGN KEY (IdMunicipioFk) REFERENCES municipio(Id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nit_proveedor VARCHAR(20) NOT NULL UNIQUE,
+    nombre VARCHAR(100) NOT NULL,
+    id_tipo_persona INT NOT NULL,
+    id_municipio_fk INT NOT NULL,
+    FOREIGN KEY (id_tipo_persona) REFERENCES tipo_persona(id),
+    FOREIGN KEY (id_municipio_fk) REFERENCES municipio(id)
 );
 
-INSERT INTO proveedor (NitProveedor, Nombre, IdTipoPersona, IdMunicipioFk)
+INSERT INTO proveedor (nit_proveedor, nombre, id_tipo_persona, id_municipio_fk)
 VALUES
 ('900000000-1', 'Proveedor 1', 1, 1),
 ('900000000-2', 'Proveedor 2', 2, 2),
@@ -456,14 +455,14 @@ VALUES
 ('900000000-5', 'Proveedor 5', 2, 5);
 
 CREATE TABLE insumo_proveedor (
-    IdInsumoFk INT NOT NULL,
-    IdProveedorFk INT NOT NULL,
-    PRIMARY KEY (IdInsumoFk, IdProveedorFk),
-    FOREIGN KEY (IdInsumoFk) REFERENCES insumo(Id),
-    FOREIGN KEY (IdProveedorFk) REFERENCES proveedor(Id)
+    id_insumo_fk INT NOT NULL,
+    id_proveedor_fk INT NOT NULL,
+    PRIMARY KEY (id_insumo_fk, id_proveedor_fk),
+    FOREIGN KEY (id_insumo_fk) REFERENCES insumo(id),
+    FOREIGN KEY (id_proveedor_fk) REFERENCES proveedor(id)
 );
 
-INSERT INTO insumo_proveedor (IdInsumoFk, IdProveedorFk)
+INSERT INTO insumo_proveedor (id_insumo_fk, id_proveedor_fk)
 VALUES
 (1, 1),
 (2, 2),

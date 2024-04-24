@@ -3,13 +3,12 @@ package jstorra.vizyonindustrialbackend.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cargo")
-public class Cargo {
+@Table(name = "tipo_estado")
+public class TipoEstado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String descripcion;
-    private double sueldoBase;
 
     public int getId() {
         return id;
@@ -25,13 +24,5 @@ public class Cargo {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public double getSueldoBase() {
-        return sueldoBase;
-    }
-
-    public void setSueldoBase(double sueldoBase) {
-        this.sueldoBase = sueldoBase;
     }
 }
