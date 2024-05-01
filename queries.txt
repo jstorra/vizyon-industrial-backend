@@ -1,0 +1,47 @@
+1. venta
+2. empleado
+3. venta
+4. detalle_orden
+5. inventario
+6. proveedor
+7. empleado
+8. orden
+9. empresa
+10. prenda
+11. cliente
+12. empleado
+13. prenda
+14. prenda
+15. venta
+16. prenda
+17. cliente
+18. orden
+19. cargo
+20. cliente
+21. tipo_proteccion
+22. empleado
+23. cargo
+24. estado
+25. tipo_persona
+26. estado
+27. forma_pago
+28. insumo
+29. cliente
+30. prenda
+31. estado
+
+venta ✅ consultas ✅
+empleado ✅ consultas ✅
+detalle_orden ✅ consultas
+inventario ✅ consultas
+proveedor ✅ consultas
+orden ✅ consultas
+empresa ✅ consultas
+prenda ✅ consultas
+cliente ✅ consultas
+cargo ✅ consultas
+tipo_proteccion ✅ consultas
+estado ✅ consultas
+tipo_persona ✅ consultas
+forma_pago ✅ consultas
+insumo ✅ consultas
